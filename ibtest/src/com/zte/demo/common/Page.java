@@ -19,6 +19,7 @@ public class Page {
 
 	}
 
+	private final static int CONTANTPage = 6;
 	private int curPage = 1; // 当前页
 	private int pageSize = 5; // 每页多少行
 	private int totalRow; // 共多少行
