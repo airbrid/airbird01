@@ -37,5 +37,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.apache.httpcomponents.httpclient_4.4.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cloudcomputing-cloudbase-drdc-client-1.01.01.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/demo.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

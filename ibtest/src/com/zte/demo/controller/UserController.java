@@ -109,11 +109,10 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/deleteUser")
-	public String deleteUser(User user, Model model, int id,
-			@RequestParam(value="currentPageNo") int currentPageNo,
-			@RequestParam(value="pageSize")int pageSize) throws Exception
+	public String deleteUser(User user, Model model, int id) throws Exception
 	{
-		userService.deleteUser(id);	
-		return selectUser(user, model, currentPageNo, pageSize);
+		userService.deleteUser(id);
+		
+		return selectUser(user, model,1,5);
 	}
 }

@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<td> ${user.id}</td>
 		<td> ${user.username}</td>
 		<td> ${user.password}</td>
-		<%-- <td><a href="user/deleteUser.do?id=${user.id}">删除</a></td> --%>
+		<td><a href="user/deleteUser.do?id=${user.id}">删除</a></td>
 		</tr>
     	</c:forEach>
     	<tr>
