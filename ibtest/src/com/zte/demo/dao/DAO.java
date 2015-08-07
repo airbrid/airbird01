@@ -28,5 +28,6 @@ public interface  DAO {
 	
 	
 	public int deleteUser(int id) throws Exception;
+	public int getCountAllUser(User user);
 	
 }

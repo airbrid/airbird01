@@ -79,5 +79,11 @@ public class UserServiceImpl implements UserServiceI{
 		}else
 		return false;
 	}
+	@Override
+	public int getCountAllUser(User user) {
+		// TODO Auto-generated method stub
+		int num = daoSupport.getCountAllUser(user);
+		return num;
+	}
  
 }

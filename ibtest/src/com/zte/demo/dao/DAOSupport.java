@@ -85,5 +85,10 @@ public class DAOSupport implements DAO {
 		return luser;
 		
 	}
+	
+	public int getCountAllUser(User user){
+		int number = userMapper.getCountAllUser(user);
+		return number;
+	}
 
 }

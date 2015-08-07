@@ -14,4 +14,5 @@ public interface UserMapper {
     public List<User> getAllUserList(User user);
     public void insertUser(User user);
     public List<Integer> checkUser(String username);
+    public int getCountAllUser(User user);
 }

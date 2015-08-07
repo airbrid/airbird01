@@ -7,6 +7,7 @@ public class User {
     private int id;
     private String username;
     private String password;
+    private int start;
     
     public User(){
         
@@ -32,6 +33,12 @@ public class User {
     public String toString(){
         return "id="+id+" , username="+username+" , password="+password+"";
     }
+	public int getStart() {
+		return start;
+	}
+	public void setStart(int start) {
+		this.start = start;
+	}
     
 
 }

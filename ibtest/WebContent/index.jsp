@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br />
 	<a href="user/adduser.do">客户端添加</a>
 	<br />
-	<a href="user/select.do">查询所有数据</a>
+	<a href="user/select.do?currentPageNo=1&pageSize=5">查询所有数据</a>
 	<br />
 	<a href="user/selectclient.do">返回客户端数据</a>
 	<br />

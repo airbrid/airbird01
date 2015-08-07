@@ -17,7 +17,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
+	<script type="text/javascript" src="<%=basePath%>mainweb/userjs/page.js"></script>
   </head>
+  <style>
+  .splitPageStyle{
+  text-align:center;
+  vertical-align:middle;
+  }
+  .splitPage{
+  color:blue;
+  cursor:pointer;
+  }
+  </style>
   <script>
   function deleteUser(){
 	  
@@ -26,10 +37,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   <a href="index.jsp">返回首页</a>
   <br/>
-    	<c:forEach items="${list}" var="data">
-    		id: ${data.id}---name: ${data.username }---password:${data.password }
-    		 <a href="user/deleteUser.do?id=${data.id}">删除</a>
-    		 <hr/>
-    	</c:forEach>	
+      	<table class="splitPageStyle">
+      	<c:choose>
+      		<c:when test="true">	
+      		<tr>
+		<th>id:</th>
+		<th>name:</th>
+		<th>password:</th>
+		</tr>
+      	<c:forEach items="${list.data}" var="user">
+		<tr>
+		<td> ${user.id}</td>
+		<td> ${user.username}</td>
+		<td> ${user.password}</td>
+		<%-- <td><a href="user/deleteUser.do?id=${user.id}">删除</a></td> --%>
+		</tr>
+    	</c:forEach>
+    	<tr>
+		<td colspan="14" align="center" class="splitPageStyle">${list.pageString}</td>		
+		</tr>
+      	</c:when>
+      	<c:otherwise>
+      	<tr>查询的内容weikong</tr>
+      	</c:otherwise>
+      		
+    	</c:choose>
+    	</table>
+    	<a id="currentPageNo"></a>	
   </body>
 </html>

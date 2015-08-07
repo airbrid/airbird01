@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import sun.misc.Request;
 
+import com.zte.demo.common.Page;
 import com.zte.demo.dao.DAO;
 import com.zte.demo.entity.User;
 import com.zte.demo.mapper.UserMapper;
@@ -70,11 +71,16 @@ public class UserController {
 		out.close();
 	}
 	@RequestMapping(value = "/select")
-	public String selectUser(User user, Model model) {
-		
-		// System.out.println("list"+ userService.getAllUserList(user));
+	public String selectUser(User user, Model model,
+			@RequestParam(value="currentPageNo") int currentPageNo,
+			@RequestParam(value="pageSize")int pageSize) {	
+		int countNum = userService.getCountAllUser(user);
+		int start = Page.getSartOfPage(currentPageNo);
+		user.setStart(start);
 		List<User> users = userService.getAllUserList(user);
-		model.addAttribute("list", users);
+		Page page = new Page(start,countNum,pageSize,users);
+		page.setCurPage(currentPageNo);
+		model.addAttribute("list", page);
 		return "/list.jsp";
 	}
 
@@ -103,9 +109,11 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/deleteUser")
-	public String deleteUser(User user,int id, Model model) throws Exception
+	public String deleteUser(User user, Model model, int id,
+			@RequestParam(value="currentPageNo") int currentPageNo,
+			@RequestParam(value="pageSize")int pageSize) throws Exception
 	{
 		userService.deleteUser(id);	
-		return selectUser(user, model);
+		return selectUser(user, model, currentPageNo, pageSize);
 	}
 }

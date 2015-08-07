@@ -18,8 +18,11 @@
     SELECT * FROM user WHERE id=#{id}  
 </select> 
 <select id="getAllUserList" parameterType="User" resultType="User">  
-    SELECT * FROM user 
+    SELECT * FROM user limit  #{start},5
 </select> 
+<select id="getCountAllUser" parameterType="User" resultType="_int">  
+    SELECT count(*) FROM user 
+</select>
 <select id="checkUser" parameterType="User" resultType="_int">
      SELECT count(*) from user where username=#{username} 
 </select>
